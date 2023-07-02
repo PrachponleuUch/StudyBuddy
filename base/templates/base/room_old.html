@@ -1,0 +1,57 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <style>
+        .room-container{
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+        }
+    </style>
+
+    <h1>
+        ROOM
+    </h1>
+
+    <hr>
+    <div class="room-container">
+        <div>
+            {% if request.user == room.host %}
+            <a href="{% url 'update-room' room.id %}">Edit</a>
+            <a href="{% url 'delete-room' room.id %}">Delete</a>
+            {% endif %}
+            <h1>{{room.name}} </h1>
+            <h5>Hosted By @{{room.host.username}}</h5>
+            <hr>
+
+            {{room.description}}
+
+            <h4>Conversation</h4>
+            <div>
+                
+                {% for message in room_messages %}
+                {% if request.user == message.user %}
+                <!-- <a href="{% url 'update-room' room.id %}">Edit</a> -->
+                <a href="{% url 'delete-message' message.id %}">Delete</a>
+                {% endif %}
+                <p><a href="{% url 'profile' message.user.id %}">@{{message.user.username}}</a> {{message.created|timesince}} ago</p>
+                <p>{{message.body}}</p>
+                <hr>
+                {% endfor %}
+            </div>
+            <div>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                <input type="text" name="body" placeholder="Write message here">
+                </form>
+            </div>
+        </div>
+        <div>
+            <h2>Participants</h2>
+            {% for participant in participants %}
+            <p><a href="{% url 'profile' participant.id %}">@{{participant.username}}</a></p>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %}
