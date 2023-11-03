@@ -1,6 +1,8 @@
 # StudyBuddy
 A social media type application made using HTML5, CSS3, JAVASCRIPT, PYTHON, DJANGO and DJANGO REST FRAMEWORK.
 
+URL: http://prachponleuuch.pythonanywhere.com/ 
+
 I learned to create this from a tutorial on youtube while also adding some of my own functionalities to it such as
 - Token Creation and Authentication
 - Email Authentication and Confirmation
