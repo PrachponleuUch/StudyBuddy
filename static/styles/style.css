@@ -782,26 +782,33 @@ a {
   border-radius: 5px;
   margin-top: 1rem;
   margin-left: -4.2rem;
+  overflow-x: scroll;
 }
 
 .roomListRoom__actions svg {
   fill: var(--color-light-gray);
 }
 
-/*==============================
-=>  Create Room
+/*============================== 
+=>  Activities , Update Account & Create Room
 ================================*/
 
+.activities-page.layout .layout__box, 
+.update-account.layout .layout__box,
 .create-room.layout .layout__box {
   max-width: 68rem;
+  max-height: 40rem;
+  overflow-y: scroll;
 }
 
 /*==============================
-=>  Update Account
+=>  Login & Register
 ================================*/
 
-.update-account.layout .layout__box {
+.login-form, .register-form {
   max-width: 68rem;
+  max-height: 50rem;
+  overflow-y: scroll;
 }
 
 /*==============================
